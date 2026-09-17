@@ -1,0 +1,109 @@
+html, body, #app {
+  margin: 0;
+  height: 100%;
+  font-family: system-ui, sans-serif;
+}
+
+#map {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+#app-title {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  margin: 0;
+  padding: 8px 16px;
+  font-size: 18px;
+  font-weight: 600;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+#country-names-toggle {
+  position: absolute;
+  top: 60px;
+  right: 16px;
+  z-index: 1000;
+  padding: 6px 12px;
+  font-size: 13px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.country-label {
+  display: none;
+  background: none;
+  border: none;
+  box-shadow: none;
+  font-size: 11px;
+  font-weight: 600;
+  color: #333;
+  text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
+}
+
+#map.show-country-names .country-label {
+  display: block;
+}
+
+#search-panel {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 1000;
+  width: 320px;
+}
+
+#search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+#search-results {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+#search-results li {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#search-results li:hover {
+  background: #f0f0f0;
+}
+
+.search-empty,
+.search-error {
+  color: #888;
+  cursor: default;
+}
+
+.search-empty:hover,
+.search-error:hover {
+  background: transparent;
+}

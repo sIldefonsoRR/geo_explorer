@@ -1,0 +1,13 @@
+# Geo Explorer
+
+> Interactive world map for searching cities and countries, viewing country
+> boundaries, and looking up basic geographic data (population, coordinates).
+
+Geo Explorer is a single-page client-side map app built with Leaflet. It has
+no server-rendered pages or API beyond static JSON/GeoJSON data files.
+
+## Data
+
+- /data/cities.json: city name, country, region, population, coordinates
+- /data/countries.json: country name, code, centroid coordinates
+- /data/countries-boundaries.geojson: country border polygons
