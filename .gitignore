@@ -3,3 +3,5 @@ dist/
 tsconfig.tsbuildinfo
 cities.csv
 _cities.csv
+.claude/
+docs/

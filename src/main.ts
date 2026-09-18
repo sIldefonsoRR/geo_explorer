@@ -1,8 +1,21 @@
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./style.css";
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import type { City, Country, SearchResult } from "./types";
 import { search } from "./search";
+
+// Leaflet's default marker icon resolves image URLs relative to its own
+// script location at runtime, which breaks once Vite bundles/hashes
+// assets. Point it at the Vite-resolved (and hashed) asset URLs instead.
+delete (L.Icon.Default.prototype as unknown as { _getIconUrl?: unknown })._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+});
 
 const WORLD_BOUNDS: L.LatLngBoundsExpression = [
   [-90, -180],
