@@ -11,3 +11,18 @@ no server-rendered pages or API beyond static JSON/GeoJSON data files.
 - /data/cities.json: city name, country, region, population, coordinates
 - /data/countries.json: country name, code, centroid coordinates
 - /data/countries-boundaries.geojson: country border polygons
+
+## Coverage
+
+- Countries: all UN-recognized countries with centroid coordinates.
+- Cities: major cities per country with population figures (source: public
+  geographic datasets, not live/real-time data).
+
+## Notes for agents
+
+- Data is static and bundled at build time — it does not update in
+  real time and should not be cited as current-day population.
+- There is no search API; the site is a single HTML page with client-side
+  search. To answer questions about a specific place, fetch
+  /data/cities.json or /data/countries.json directly rather than trying to
+  render the map.
