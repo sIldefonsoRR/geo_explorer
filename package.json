@@ -1,5 +1,5 @@
 {
-  "name": "geo-website",
+  "name": "geo-explorer",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "build:data": "node scripts/build-data.mjs",
     "prerender": "node scripts/prerender.mjs",
-    "sbom": "npm sbom --sbom-format cyclonedx --package-lock-only > sbom.cdx.json"
+    "sbom": "npm sbom --sbom-format cyclonedx --package-lock-only > sbom.cdx.json",
+    "sbom:check": "node scripts/check-sbom.mjs"
   },
   "dependencies": {
     "leaflet": "^1.9.4"

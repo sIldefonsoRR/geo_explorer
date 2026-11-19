@@ -27,6 +27,7 @@ npm run preview   # serve dist/ locally
 | `npm run build:data` | Regenerate `public/data/cities.json` and `countries.json` from CSV |
 | `npm run prerender` | Re-inject crawlable HTML into `dist/index.html` |
 | `npm run sbom` | Regenerate `sbom.cdx.json` from `package-lock.json` |
+| `npm run sbom:check` | Fail if `sbom.cdx.json` is out of sync with `package-lock.json` |
 
 ## Data
 
@@ -53,7 +54,11 @@ The app is client-rendered, so `npm run build` runs `scripts/prerender.mjs` to i
 
 ## SBOM
 
-`sbom.cdx.json` is a [CycloneDX](https://cyclonedx.org/) 1.5 software bill of materials generated from `package-lock.json` with `npm sbom`. Regenerate it with `npm run sbom` after changing dependencies.
+`sbom.cdx.json` is a [CycloneDX](https://cyclonedx.org/) 1.5 software bill of materials generated from `package-lock.json` with `npm sbom`. Regenerate it with `npm run sbom` after changing dependencies; the `SBOM` GitHub Actions workflow runs `npm run sbom:check` on pushes to `main` and on pull requests and fails if it is stale.
+
+It covers npm packages only. Third-party resources the app uses at runtime are not listed: Esri World Terrain Base map tiles, `public/data/countries-boundaries.geojson`, and the flag SVGs in `public/flags/`.
+
+The root component's `name` comes from the checkout folder (an `npm sbom` quirk); its `purl` reflects the `package.json` name, `geo-explorer`.
 
 ## License
 

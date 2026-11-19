@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.schema.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:133deab4-5a74-4976-b11c-9015319d1537",
+  "serialNumber": "urn:uuid:13b5bce4-fd5f-4fc8-8451-a9ce5a8cf95b",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-11-19T12:51:25.323Z",
+    "timestamp": "2026-11-19T13:08:06.897Z",
     "lifecycles": [
       {
         "phase": "pre-build"
@@ -19,12 +19,12 @@
       }
     ],
     "component": {
-      "bom-ref": "geo-website@0.0.1",
+      "bom-ref": "geo-explorer@0.0.1",
       "type": "library",
       "name": "geo_explorer",
       "version": "0.0.1",
       "scope": "required",
-      "purl": "pkg:npm/geo-website@0.0.1",
+      "purl": "pkg:npm/geo-explorer@0.0.1",
       "properties": [
         {
           "name": "cdx:npm:package:private",
@@ -2112,7 +2112,7 @@
   ],
   "dependencies": [
     {
-      "ref": "geo-website@0.0.1",
+      "ref": "geo-explorer@0.0.1",
       "dependsOn": [
         "leaflet@1.9.4",
         "@types/leaflet@1.9.22",

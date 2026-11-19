@@ -9,7 +9,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run preview` — serve `dist/`
 - `npm run build:data` — regenerate `public/data/cities.json` and `countries.json` from CSVs (manual, not part of build)
 - `npm run prerender` — re-run prerender step alone against existing `dist/`
-- `npm run sbom` — regenerate `sbom.cdx.json` (CycloneDX, from `package-lock.json`); rerun after dependency changes
+- `npm run sbom` — regenerate `sbom.cdx.json` (CycloneDX, from `package-lock.json`); rerun and commit after any dependency change
+- `npm run sbom:check` — fails if `sbom.cdx.json` is stale; runs in CI (`.github/workflows/sbom.yml`, the only workflow)
 
 No test runner or linter configured. Type checking (`npx tsc -b`) is the only static check; `tsconfig.json` is strict with `noUnusedLocals`/`noUnusedParameters`, so unused code fails the build.
 
