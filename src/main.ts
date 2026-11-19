@@ -22,6 +22,10 @@ const WORLD_BOUNDS: L.LatLngBoundsExpression = [
   [90, 180],
 ];
 
+// Esri World Terrain Base has real imagery only through zoom 9; from 10 up
+// it returns "Map data not yet available" placeholder tiles.
+const TERRAIN_MAX_ZOOM = 9;
+
 const mapContainer = document.getElementById("map")!;
 const widthFitZoom = Math.ceil(Math.log2(mapContainer.clientWidth / 256));
 
@@ -31,7 +35,7 @@ const map = L.map("map", {
   maxBoundsViscosity: 1.0,
   zoomControl: false,
   minZoom: widthFitZoom,
-  maxZoom: 6,
+  maxZoom: TERRAIN_MAX_ZOOM,
 });
 L.control.zoom({ position: "bottomright" }).addTo(map);
 
@@ -59,7 +63,7 @@ L.tileLayer(
   "https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}",
   {
     attribution: "&copy; Esri",
-    maxZoom: 6,
+    maxZoom: TERRAIN_MAX_ZOOM,
     noWrap: true,
   },
 ).addTo(map);
