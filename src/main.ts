@@ -103,7 +103,8 @@ function showResult(result: SearchResult): void {
     activeMarker.remove();
   }
   activeMarker = L.marker([lat, lng]).addTo(map).bindPopup(popupHtml).openPopup();
-  map.flyTo([lat, lng], result.type === "city" ? 10 : 5);
+  // City zoom is capped by the map/tile maxZoom; requesting more is silently clamped.
+  map.flyTo([lat, lng], result.type === "city" ? map.getMaxZoom() : 5);
 }
 
 function cityPopup(city: City): string {

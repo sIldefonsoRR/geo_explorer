@@ -33,7 +33,7 @@ Generated `cities.json` / `countries.json` are committed, so `cities.csv` is onl
 - `main.ts` — map setup, boundary overlay (GeoJSON with permanent tooltips, shown via `.show-country-names` CSS toggle on `#map`), search wiring, popups. Fetches all data from `/data/*` at startup; whole city list held in memory.
 - `search.ts` — pure function: case-insensitive substring match; countries first, then cities by population desc, capped at 10 total.
 - Leaflet default marker icons are re-pointed at Vite-imported asset URLs (otherwise broken after bundling) — keep that block when touching marker code.
-- Map `maxZoom` is 6 (tile layer limit too); `flyTo` zooms are clamped by that.
+- Map `maxZoom` is 6 (tile layer limit too); city `flyTo` uses `map.getMaxZoom()`, so raise both `maxZoom` settings to zoom closer.
 
 ### SEO / prerender
 
