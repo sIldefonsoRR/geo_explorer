@@ -62,7 +62,7 @@ new ResetViewControl().addTo(map);
 L.tileLayer(
   "https://server.arcgisonline.com/ArcGIS/rest/services/World_Terrain_Base/MapServer/tile/{z}/{y}/{x}",
   {
-    attribution: "&copy; Esri",
+    attribution: "Tiles &copy; Esri &mdash; Source: USGS, Esri, TANA, DeLorme, and NPS",
     maxZoom: TERRAIN_MAX_ZOOM,
     noWrap: true,
   },
@@ -107,7 +107,7 @@ function showResult(result: SearchResult): void {
     activeMarker.remove();
   }
   activeMarker = L.marker([lat, lng]).addTo(map).bindPopup(popupHtml).openPopup();
-  // City zoom is capped by the map/tile maxZoom; requesting more is silently clamped.
+  // Zoom as close as the terrain tiles allow (TERRAIN_MAX_ZOOM).
   map.flyTo([lat, lng], result.type === "city" ? map.getMaxZoom() : 5);
 }
 

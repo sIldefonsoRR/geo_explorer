@@ -8,7 +8,7 @@ Built with TypeScript, [Vite](https://vitejs.dev/) and [Leaflet](https://leaflet
 
 ## Getting started
 
-Requires Node.js 18+.
+Requires Node.js 18.16+ (npm 9.5+, needed by `npm sbom`).
 
 ```sh
 npm install
